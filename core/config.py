@@ -1,0 +1,13 @@
+# coding=utf-8
+
+# GPIO
+DISP_D0 = 29
+DISP_D1 = 31
+DISP_D2 = 32
+DISP_D3 = 33
+DISP_D4 = 35
+DISP_D5 = 36
+
+DISP_CS = 37
+DISP_WR = 38
+DISP_CLR = 40
