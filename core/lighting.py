@@ -1,6 +1,7 @@
 from time import sleep
 
 import RPi.GPIO as GPIO
+import collections
 
 constant_lights = set()
 
@@ -12,14 +13,20 @@ def wave(pins):
         GPIO.output(pin, GPIO.LOW)
 
 
-def on(pin):
-    GPIO.output(pin, GPIO.HIGH)
-    constant_lights.add(pin)
+def on(pins):
+    GPIO.output(pins, GPIO.HIGH)
+    if isinstance(pins, collections.Iterable):
+        constant_lights.update(pins)
+    else:
+        constant_lights.add(pins)
 
 
-def off(pin):
-    GPIO.output(pin, GPIO.LOW)
-    constant_lights.discard(pin)
+def off(pins):
+    GPIO.output(pins, GPIO.LOW)
+    if isinstance(pins, collections.Iterable):
+        constant_lights.difference_update(pins)
+    else:
+        constant_lights.remove(pins)
 
 
 def destroy():
