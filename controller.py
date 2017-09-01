@@ -34,7 +34,7 @@ if not os.getuid() == 0:
 print "KP ASC-4PL v1.0"
 
 routines.startup()
-bank_repository = banks.BankRepository('../banks.pkl')
+bank_repository = banks.BankRepository('/mnt/data/banks.pkl')
 bank_controller = banks.BankController(bank_repository)
 
 lighting.wave((PRESET_C_LED, PRESET_B_LED, PRESET_A_LED, LOOP_1, LOOP_2, LOOP_3, LOOP_4, KILL_DRY))
