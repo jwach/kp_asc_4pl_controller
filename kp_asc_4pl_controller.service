@@ -1,0 +1,16 @@
+[Unit]
+Description=KP ASC-4PL Controller
+
+[Service]
+ExecStart=/usr/bin/python /root/kp_asc_4pl/kp_asc_4pl_controller/controller.py
+StandardOutput=syslog
+StandardError=syslog
+SyslogLevelPrefix=false
+SyslogLevel=debug
+SyslogIdentifier=kp_asc_4pl_controller
+Restart=always
+TimeoutStopSec=5
+
+[Install]
+WantedBy=multi-user.target
+Alias=kp_asc_4pl_controller.service
