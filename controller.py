@@ -28,16 +28,16 @@ def preset_c_press(channel):
 
 
 if not os.getuid() == 0:
-    print("need root")
+    print 'need root'
     exit(0)
 
-print "KP ASC-4PL v1.0"
+print 'KP ASC-4PL v1.0'
 
 routines.startup()
 bank_repository = banks.BankRepository('/mnt/data/banks.pkl')
 bank_controller = banks.BankController(bank_repository)
 
-lighting.wave((PRESET_C_LED, PRESET_B_LED, PRESET_A_LED, LOOP_1, LOOP_2, LOOP_3, LOOP_4, KILL_DRY))
+lighting.wave((PRESET_A_LED, PRESET_B_LED, PRESET_C_LED))
 
 display.show('ASC-4PL')
 
@@ -52,6 +52,6 @@ GPIO.add_event_detect(PRESET_B, GPIO.FALLING, callback=preset_b_press, bouncetim
 GPIO.add_event_detect(PRESET_C, GPIO.FALLING, callback=preset_c_press, bouncetime=300)
 
 # we are ready
-
-sleep(60)
-routines.shutdown()
+while 1:
+    print 'Main loop. Idling...'
+    sleep(300)

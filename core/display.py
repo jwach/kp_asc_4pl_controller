@@ -21,9 +21,12 @@ def clear():
         GPIO.output(DISP_CLR, GPIO.LOW)
         _default_sleep()
         GPIO.output(DISP_CLR, GPIO.HIGH)
+        _default_sleep()
 
 
 def show(string):
+    clear()
+    _write(' ')
     clear()
     _write(string)
 
@@ -37,6 +40,7 @@ def _write_char(bit_array):
     GPIO.output(DISP_WR, GPIO.LOW)
     _default_sleep()
     GPIO.output(DISP_WR, GPIO.HIGH)
+    _default_sleep()
 
 
 def _encode_char(c):

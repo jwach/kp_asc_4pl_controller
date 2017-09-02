@@ -34,6 +34,7 @@ def startup():
     GPIO.setup(PRESET_B_LED, GPIO.OUT)
     GPIO.setup(PRESET_C_LED, GPIO.OUT)
 
+    lighting.startup((KILL_DRY, LOOP_1, LOOP_2, LOOP_3, LOOP_4, PRESET_A_LED, PRESET_B_LED, PRESET_C_LED))
     display.startup()
 
 

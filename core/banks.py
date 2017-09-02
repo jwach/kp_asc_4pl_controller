@@ -41,10 +41,9 @@ class BankRepository:
 class BankController:  # CONSIDER LOCKING HERE!!!
     def __init__(self, bank_repository):
         self.bank_repository = bank_repository
-        self.current = None
+        self.current = (1, self.bank_repository.get(1))
 
     def start(self):
-        self.current = (1, self.bank_repository.get(1))
         self._load_bank()
 
     def up(self):
